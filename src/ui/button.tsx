@@ -2,7 +2,7 @@
 type ButtonProps = { 
     text: string,
     onClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
-    className: string,
+    className?: string,
 } 
 
 const Button= ({text, onClick, className}:ButtonProps) => {

@@ -6,10 +6,11 @@ type PropsType = {
     option: string,
     value: string,
     checked: boolean,
+    className?: string,
     onChange: (e: ChangeEvent<HTMLInputElement>) => void,
 }
 
-const InputField = ({name, id, option, value, checked, onChange}: PropsType) => {
+const InputField = ({name, id, option, value, checked, className, onChange}: PropsType) => {
     return <div className="py-2 input-field-wrapper">
         <input 
             type='radio'
@@ -18,7 +19,7 @@ const InputField = ({name, id, option, value, checked, onChange}: PropsType) => 
             value={value}
             checked={checked}
             onChange={onChange}
-            className="input-field"
+            className={`input-field ${className}`}
         />
         <label htmlFor={id} className='text-xl'>
             {option}

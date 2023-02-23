@@ -18,24 +18,13 @@ input[type="radio"] {
   accent-color: var(--checked-color)
 }
 
-.correct {
-  background-color: aqua;
-}
-
-.wrong {
-  background-color: fuchsia;
-}
-
 .input-field-wrapper:hover {
   background-color: #71e06d;
 }
 
-
-
 .input-field:checked {
-  background-color: white;
+  background-color: red;
   color: black;
-  /* outline: 1px solid black; */
 }
 
 .none{

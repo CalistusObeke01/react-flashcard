@@ -5,7 +5,7 @@ import InputField from "../ui/input-field";
 import Button from "../ui/button";
 
 type QuestionType = {
-    question: string, 
+    question: string,
     optionA: string,
     optionB: string,
     optionC: string,
@@ -18,7 +18,6 @@ const Question = () => {
     const [questions, setQuestions] = useState<QuestionType>([])
     const [selectOption, setSelectOption] = useState<string>('')
     const [isError, setError] = useState("")
-    // const [isError, setError]: [string, (error: string) => void] = useState("");
     const [questionNumber, setQuestionNumber] = useState(0)
 
     useEffect(() => {
@@ -73,6 +72,7 @@ const Question = () => {
             value={qtn.optionC}
             checked={selectOption === qtn.optionC}
             onChange={onOptionChange}
+            className={`${!qtn.optionC ? 'none': ''}`}
         />
         <InputField
             name='mark'
@@ -81,14 +81,15 @@ const Question = () => {
             value={qtn.optionD}
             checked={selectOption === qtn.optionD}
             onChange={onOptionChange}
+            className={`${!qtn.optionD ? 'none': ''}`}
         />
-        <MemoizedCalcScore 
+        <MemoizedCalcScore
             score={selectOption === qtn.answer}
         />
     </div>)
 
     if(isError) return <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded" role="alert">
-        <strong className="font-bold">Error: &nbsp;</strong>
+        <strong>Error:</strong>
         <span className="block sm:inline">{isError}</span>
     </div>
 
@@ -100,7 +101,6 @@ const Question = () => {
             <Button 
                 onClick={nextQuestion} 
                 text='Next Question'
-                // className={`${questionAttempted >= questions.length ? 'none' : ''}`}
                 className={`${selectOption === '' ? 'none' : 'block'}`}
             />
         }

@@ -1,21 +1,16 @@
 import React, {useMemo, useState} from "react";
 
 type PropsType = {
-    score: boolean
+    score: boolean,
 }
 
 const CalcScore = ({score}: PropsType) => {
     const [total, setTotal] = useState<number>(0)
 
     const calcScore = (score: boolean) => {
-        let totalCorrectQtns = 0;
-        
-        for (let i = 0; i <= 1; i++) {
-            if (score) {
-                setTotal(total + totalCorrectQtns++)
-            }
+        if(score) {
+            setTotal(total + 1)
         }
-        return totalCorrectQtns;
     }
 
     useMemo(() => calcScore(score), [score])
@@ -27,4 +22,3 @@ const CalcScore = ({score}: PropsType) => {
 }
 
 export const MemoizedCalcScore = React.memo(CalcScore);
-
