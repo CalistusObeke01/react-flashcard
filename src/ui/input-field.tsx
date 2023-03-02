@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react"
 
-type PropsType = {
+type InputFieldProps = {
     name: string,
     id: string,
     option: string,
@@ -10,7 +10,7 @@ type PropsType = {
     onChange: (e: ChangeEvent<HTMLInputElement>) => void,
 }
 
-const InputField = ({name, id, option, value, checked, className, onChange}: PropsType) => {
+const InputField = ({name, id, option, value, checked, className, onChange}: InputFieldProps) => {
     console.log(checked)
     return <div className={`py-2 input-field-wrapper ${className}`}>
         <input 

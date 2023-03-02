@@ -16,9 +16,9 @@ type QuestionState = {
 
 const Question = () => {
     const [questions, setQuestions] = useState<QuestionState>([])
-    const [selectOption, setSelectOption] = useState("")
+    const [selectOption, setSelectOption]: [string, (error: string) => void] = useState("")
     const [isError, setError]: [string, (error: string) => void] = useState("");
-    const [questionNumber, setQuestionNumber] = useState(0)
+    const [questionNumber, setQuestionNumber]: [number, (error: number) => void] = useState(0)
 
     useEffect(() => {
         QuestionService.getQuestions(setQuestions, setError)
