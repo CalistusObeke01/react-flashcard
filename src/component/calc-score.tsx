@@ -1,22 +1,24 @@
 import React, {useMemo, useState} from "react";
 
-type PropsType = {
+type ScoreProps = {
     score: boolean,
 }
 
-const CalcScore = ({score}: PropsType) => {
-    const [total, setTotal] = useState<number>(0)
+const CalcScore = ({score}: ScoreProps) => {
+    const [total, setTotal]:any = useState([])
 
     const calcScore = (score: boolean) => {
         if(score) {
-            setTotal(total + 1)
+            setTotal([...total, score])
+        }else {
+            setTotal(total)
         }
     }
 
     useMemo(() => calcScore(score), [score])
     return <div>
         <h6 className="text-2xl font-bold">
-            {total}
+            {total.length}
         </h6>
     </div>
 }

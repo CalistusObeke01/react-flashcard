@@ -5,7 +5,7 @@ type HeaderType = {
 
 const Header = ({text}: HeaderType) => {
     return <header className="font-bold bg-black text-white py-6" >
-        <h1 className="uppercase text-4xl text-center">{text}</h1>
+        <h1 className="uppercase text-2xl text-center">{text}</h1>
     </header>
 }
 

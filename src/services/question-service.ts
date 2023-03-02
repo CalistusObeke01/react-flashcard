@@ -1,4 +1,3 @@
-
 import axios from '../http-common'
 
 class QuestionService {

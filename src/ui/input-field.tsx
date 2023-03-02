@@ -11,7 +11,8 @@ type PropsType = {
 }
 
 const InputField = ({name, id, option, value, checked, className, onChange}: PropsType) => {
-    return <div className="py-2 input-field-wrapper">
+    console.log(checked)
+    return <div className={`py-2 input-field-wrapper ${className}`}>
         <input 
             type='radio'
             name={name}
@@ -19,9 +20,9 @@ const InputField = ({name, id, option, value, checked, className, onChange}: Pro
             value={value}
             checked={checked}
             onChange={onChange}
-            className={`input-field ${className}`}
+            className="input-field"
         />
-        <label htmlFor={id} className='text-xl'>
+        <label htmlFor={id} className='text-base'>
             {option}
         </label>
     </div>

@@ -4,7 +4,7 @@ import {MemoizedCalcScore} from "./calc-score"
 import InputField from "../ui/input-field";
 import Button from "../ui/button";
 
-type QuestionType = {
+type QuestionState = {
     question: string,
     optionA: string,
     optionB: string,
@@ -15,9 +15,9 @@ type QuestionType = {
 }[]
 
 const Question = () => {
-    const [questions, setQuestions] = useState<QuestionType>([])
-    const [selectOption, setSelectOption] = useState<string>('')
-    const [isError, setError] = useState("")
+    const [questions, setQuestions] = useState<QuestionState>([])
+    const [selectOption, setSelectOption] = useState("")
+    const [isError, setError]: [string, (error: string) => void] = useState("");
     const [questionNumber, setQuestionNumber] = useState(0)
 
     useEffect(() => {
@@ -27,12 +27,13 @@ const Question = () => {
     let questionPerPage = 1
     let questionAttempted = questionNumber * questionPerPage
   
-    const visibleIfQuestion = <h2 className="font-bold text-4xl mb-7">
+    const visibleIfQuestion = <h2 className="font-bold text-2xl mb-7">
         Question {questionAttempted+1 } of {questions.length}
     </h2>
     
     const onOptionChange = (evt:any) => {
         setSelectOption(evt.target.value)
+        console.log(evt.taget.value)
     }
 
     const nextQuestion = () => {
@@ -45,7 +46,7 @@ const Question = () => {
         .slice(questionAttempted, questionAttempted + questionPerPage)
         .map((qtn, index) => <div key={index}>
         <div className="mb-4">
-            <p className="text-2xl font-semibold">
+            <p className="text-base font-semibold">
                 {qtn.question}
             </p>
         </div>
@@ -97,7 +98,6 @@ const Question = () => {
         {questions.length ? visibleIfQuestion : ''}
         {list}
         {
-            // selectOption &&
             <Button 
                 onClick={nextQuestion} 
                 text='Next Question'
