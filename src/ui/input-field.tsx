@@ -11,7 +11,6 @@ type InputFieldProps = {
 }
 
 const InputField = ({name, id, option, value, checked, className, onChange}: InputFieldProps) => {
-    console.log(checked)
     return <div className={`py-2 input-field-wrapper ${className}`}>
         <input 
             type='radio'
