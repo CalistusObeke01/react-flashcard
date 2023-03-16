@@ -21,9 +21,10 @@ const Question = () => {
     const [isError, setError]: [string, (error: string) => void] = useState("");
     const [questionNumber, setQuestionNumber]: [number, (number: number) => void] = useState(0)
     const [isQuestionTen, setIsQuestionTen] = useState(false)
+    const [isLoading, setLoading]:[boolean, (val: boolean) => void] = useState(false)
     const [total, setTotal]:[number, (total: number) => void] = useState(0)
 
-    useEffect(() => {QuestionService.getQuestions(setQuestions, setError)},[])
+    useEffect(() => {QuestionService.getQuestions(setQuestions, setError, setLoading)},[])
 
     let questionPerPage = 1
     let questionAttempted = questionNumber * questionPerPage
@@ -60,6 +61,7 @@ const Question = () => {
         />
     )
 
+    if(isLoading) return <div className="text-2xl font-semibold">Loading...</div>
     if(isError) return <ErrorMessage isError={isError} />
     if(isQuestionTen) return <Result total={total} />
 
