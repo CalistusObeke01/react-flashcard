@@ -59,7 +59,7 @@ const QuestionItem = ({id, question, optionA, optionB, optionC, optionD, answer,
         <Button 
             onClick={() => nextQuestion(selectOption === answer)} 
             text='Next Question'
-            className={`${!selectOption ? 'none' : 'block'}`}
+            className={`${!selectOption ? 'none' : 'block'}`} 
         />
     </div>
 }
