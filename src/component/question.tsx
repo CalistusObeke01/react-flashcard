@@ -44,7 +44,7 @@ const Question = () => {
     }
 
     const list = questions
-        .slice(questionAttempted, questionAttempted + questionPerPage)
+        // .slice(questionAttempted, questionAttempted + questionPerPage)
         .map(qtn =>         
         <QuestionItem 
             key={qtn.id}
